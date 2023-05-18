@@ -35,6 +35,10 @@ const AuthForm = () => {
             // NextAuth sign in
         }
     }
+
+    const socialAction = (action: string) => {
+        // NextAuth social login
+    }
   return (
     <div>
     </div>
