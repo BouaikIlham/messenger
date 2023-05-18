@@ -17,7 +17,7 @@ const AuthForm = () => {
     }
   }, [variant]);
 
-  const { register, handleSubmit } = useForm<FieldValues>({
+  const { register, handleSubmit, formState:{errors} } = useForm<FieldValues>({
     defaultValues: {
       name: "",
       email: "",
@@ -55,7 +55,12 @@ const AuthForm = () => {
                         sm:px-10">
             <form onSubmit={handleSubmit(onSubmit)}
                   className="space-y-6"> 
-                <Input />
+                <Input 
+                  label="Email"
+                  id="email"
+                  register={register}
+                  errors={errors}
+                />
             </form>               
         </div>
     </div>
