@@ -108,14 +108,27 @@ const AuthForm = () => {
                   <div className="mt-6 flex gap-2">
                     <AuthSocialButton
                       icon={IoLogoTwitter}
-                      onClick={() => {}}
+                      onClick={() => socialAction('twitter')}
                     />
                     <AuthSocialButton
                       icon={BsGoogle}
-                      onClick={() => {}}
+                      onClick={() => socialAction('google')}
                     />
                   </div>
-            </div>         
+            </div>       
+            <div className="flex
+                            justify-center
+                            gap-2
+                            mt-6
+                            text-sm
+                            py-6">
+              <div>{variant === 'LOGIN' ? 'New to Messenger' : 'aleardy have an account'}</div>
+              <div className="underline cursor-pointer"
+                   onClick={toggleVariant} >
+                {variant === 'LOGIN' ? 'Create an Account' : 'Log in'}
+              </div>
+            </div>  
+            
         </div>
     </div>
   );
