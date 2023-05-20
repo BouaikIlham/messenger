@@ -8,6 +8,8 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import {IoLogoTwitter} from "react-icons/io"
 import {BsGoogle} from "react-icons/bs"
 import { toast } from "react-hot-toast";
+import { signIn } from  "next-auth/react"
+import { table } from "console";
 
 type Variant = "LOGIN" | "REGISTER";
 
@@ -35,7 +37,6 @@ const AuthForm = () => {
     setIsLoading(true);
 
     if (variant === "REGISTER") {
-      // axios register
       axios.post("/api/register", data)
       .then(() => {
         toast.success("Success")
@@ -49,9 +50,24 @@ const AuthForm = () => {
     }
 
     if (variant === "LOGIN") {
-      // NextAuth sign in
-      
+      signIn('credentials', {
+        ...data,
+        redirect: false
+      })
+      .then((callback) => {
+        console.log(callback)
+        if(callback?.ok && !callback?.error) {
+          toast.success("Logged in!")
+        }
+        if(callback?.error) {
+          toast.error("Invalid credentials")
+        }
 
+        
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
     }
 
   };
