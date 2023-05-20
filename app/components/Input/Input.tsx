@@ -11,6 +11,7 @@ interface InputProps {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
   disabled?: boolean;
+  placeholder?: string;
 
 }
 const Input: React.FC<InputProps> = ({
@@ -20,7 +21,8 @@ const Input: React.FC<InputProps> = ({
   required,
   register,
   errors,
-  disabled
+  disabled,
+  placeholder
 }) => {
   return (
     <div>
@@ -57,7 +59,7 @@ const Input: React.FC<InputProps> = ({
                            sm:leading-6
                            `, errors[id] && "focus:ring-rose-500",
                               disabled && "opacity-50 cursor-default")}
-          placeholder="Email"
+          placeholder={placeholder}
         />
       </div>
     </div>
