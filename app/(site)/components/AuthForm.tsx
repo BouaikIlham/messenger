@@ -8,6 +8,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import {IoLogoTwitter} from "react-icons/io"
 import {BsGoogle} from "react-icons/bs"
 import { toast } from "react-hot-toast";
+
 type Variant = "LOGIN" | "REGISTER";
 
 const AuthForm = () => {
@@ -39,8 +40,8 @@ const AuthForm = () => {
       .then(() => {
         toast.success("Success")
       })
-      .catch((error) => {
-        toast.error(error)
+      .catch(() => {
+        toast.error("Something went wrong!")
       })
       .finally(() => {
         setIsLoading(false)
@@ -49,7 +50,10 @@ const AuthForm = () => {
 
     if (variant === "LOGIN") {
       // NextAuth sign in
+      
+
     }
+
   };
 
   const socialAction = (action: string) => {
