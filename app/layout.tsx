@@ -1,6 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import ToasterProvider from '@/providers/ToasterProvider'
+import ToasterProvider from '@/app/providers/ToasterProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
